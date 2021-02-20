@@ -1,25 +1,28 @@
-import logo from './logo.svg';
 import './App.css';
 
+import 'codemirror/lib/codemirror.css';
+import '@toast-ui/editor/dist/toastui-editor.css';
+import chart from '@toast-ui/editor-plugin-chart';
+import { Editor } from '@toast-ui/react-editor';
+import React from 'react';
+
+const MyComponent = () => (
+    <Editor
+        initialValue="hello react editor world!"
+        previewStyle="vertical"
+        height="1000px"
+        initialEditType="markdown"
+        useCommandShortcut={ true }
+        plugins={ [ chart ] }
+    />
+);
+
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <div className="App">
+            <MyComponent/>
+        </div>
+    );
 }
 
 export default App;
